@@ -5,6 +5,7 @@ on: [push]
 jobs:
   run:
     runs-on: ubuntu-latest
+    environment: main
 
     steps:
       - uses: actions/checkout@v3
@@ -14,6 +15,6 @@ jobs:
 
       - name: Run script
         env:
-          SUPABASE_URL: ${{ main.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ main.SUPABASE_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.MY_SECRET_KEY }}
         run: python day1pythonbootcamp/main.py
